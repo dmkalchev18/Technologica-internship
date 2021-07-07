@@ -1,5 +1,5 @@
-# # Technologica-internship<img align="right" width="200" height="180" src="" >
-
+#  Technologica-internship<img align="right" width="220" height="200" src="https://user-images.githubusercontent.com/56883533/124710214-2267f180-df05-11eb-9a5d-edd1da2ad0a0.png" >
+<br />
 
 
 ### Table of Contents
