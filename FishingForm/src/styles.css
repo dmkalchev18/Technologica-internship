@@ -77,3 +77,19 @@ body {
     flex: 2;
     height: 20px;
 }
+
+.center {
+    text-align: center;
+}
+
+.label-text {
+    font-size: 1.2rem;
+}
+
+select {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    font-size: 0.8rem;
+    padding: 1em 3em 1em 1.5em;
+    background: rgb(255, 255, 255);
+    border: 1px solid black;
+}

@@ -7,16 +7,23 @@ import { Validators } from '@angular/forms';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit  {
+export class FormComponent implements OnInit {
 
-price:number=0;
+  durations = [
+    "1 week",
+    "1 month",
+    "6 month",
+    "1 year"
+  ]
+
+  price: number = 0;
 
   submitData() {
     console.log('Submit works')
   }
 
   ticketForm = this.fb.group({
-    //profile: this.fb.group({
+    profile: this.fb.group({
       firstName: ['', Validators.required],
       middleName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -25,23 +32,29 @@ price:number=0;
       phoneNumber: ['', Validators.required],
       email: ['', Validators.required],
       address: this.fb.group({
-        countrty: ['', Validators.required],
-        urbanArea: ['', Validators.required],
+        country: ['', Validators.required],
+        area: ['', Validators.required],
         municipality: ['', Validators.required],
         city: ['', Validators.required],
         street: ['', Validators.required],
       }),
-    //}),
-    ticket:  this.fb.group({
+    }),
+    ticket: this.fb.group({
       duration: ['', Validators.required],
       type: ['', Validators.required]
     })
   });
 
 
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    // this.ticketForm.controls['duration'].valueChanges.subscribe((value) => {
+    //   console.log(value);
+
+    this.ticketForm.valueChanges.subscribe(console.log)
+
   }
 
 }

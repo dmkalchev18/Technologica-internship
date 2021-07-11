@@ -6,67 +6,119 @@
     <form [formGroup]="ticketForm">
 
         <h4>User info:</h4>
+        <div formGroupName="profile">
 
-        <div class="form-control">
-            <label for="firstName">First Name: </label>
-            <input id="firstName" type="text" formControlName="firstName" placeholder="Enter your first name">
+            <div class="form-control">
+                <label for="firstName">First Name: </label>
+                <input id="firstName" type="text" formControlName="firstName" placeholder="Enter your first name">
+            </div>
+
+            <div class="form-control">
+                <label for="middleName">Middle Name: </label>
+                <input id="middleName" type="text" formControlName="middleName" placeholder="Enter your middle name">
+            </div>
+
+            <div class="form-control">
+                <label for="lastName">Last Name: </label>
+                <input id="lastName" type="text" formControlName="lastName" placeholder="Enter your last name">
+            </div>
+
+            <div class="form-control">
+                <label for="phoneNumber">Phone Number: </label>
+                <input id="phoneNumber" type="text" formControlName="phoneNumber" placeholder="Enter your phone number">
+            </div>
+
+            <div class="form-control">
+                <label for="email">Email: </label>
+                <input id="email" type="text" formControlName="email" placeholder="Enter your email">
+                <!-- <span *ngIf="email.invalid && email.touched">
+            Your email does not look right
+        </span> -->
+            </div>
+
+            <div class="form-control">
+                <label for="idCardNumber">ID Card Number: </label>
+                <input id="idCardNumber" type="text" formControlName="idCardNumber" placeholder="Enter your ID card number">
+            </div>
+
+            <div class="form-control">
+                <label for="identificationNumber">Identification Number: </label>
+                <input id="identificationNumber" type="text" formControlName="identificationNumber" placeholder="Enter your identification number">
+            </div>
+
+            <div formGroupName="address">
+                <div class="form-control">
+                    <label for="country" class="label-text">Country: </label>
+                    <select id="country" name="country" formControlName="country">
+                        <option value="1week">1 week</option>
+                        <option value="1month">1 month</option>
+                        <option value="6months">6 months</option>
+                        <option value="1year">1 year</option>
+                    </select>
+                </div>
+
+                <div class="form-control">
+                    <label for="area" class="label-text">Area: </label>
+                    <select id="area" name="area" formControlName="area">
+                        <option value="1week">1 week</option>
+                        <option value="1month">1 month</option>
+                        <option value="6months">6 months</option>
+                        <option value="1year">1 year</option>
+                    </select>
+                </div>
+
+                <div class="form-control">
+                    <label for="municipality" class="label-text">Municipality: </label>
+                    <select id="municipality" name="municipality" formControlName="municipality">
+                        <option value="1week">1 week</option>
+                        <option value="1month">1 month</option>
+                        <option value="6months">6 months</option>
+                        <option value="1year">1 year</option>
+                    </select>
+                </div>
+
+                <div class="form-control">
+                    <label for="city" class="label-text">City: </label>
+                    <select id="city" name="city" formControlName="city">
+                        <option value="1week">1 week</option>
+                        <option value="1month">1 month</option>
+                        <option value="6months">6 months</option>
+                        <option value="1year">1 year</option>
+                    </select>
+                </div>
+
+                <div class="form-control">
+                    <label for="street">Street: </label>
+                    <input id="street" type="text" formControlName="street" placeholder="Enter your street">
+                </div>
+            </div>
+
         </div>
-
-        <div class="form-control">
-            <label for="middleName">Middle Name: </label>
-            <input id="middleName" type="text" formControlName="middleName" placeholder="Enter your middle name">
-        </div>
-
-        <div class="form-control">
-            <label for="lastName">Last Name: </label>
-            <input id="lastName" type="text" formControlName="lastName" placeholder="Enter your last name">
-        </div>
-
-        <div class="form-control">
-            <label for="phoneNumber">Phone Number: </label>
-            <input id="phoneNumber" type="text" formControlName="phoneNumber" placeholder="Enter your phone number">
-        </div>
-
-        <div class="form-control">
-            <label for="email">Email: </label>
-            <input id="email" type="text" formControlName="email" placeholder="Enter your email">
-            <!-- <span *ngIf="email.invalid && email.touched">
-                Your email does not look right
-            </span>-->
-        </div>
-
-        <div class="form-control">
-            <label for="idCardNumber">ID Card Number: </label>
-            <input id="idCardNumber" type="text" formControlName="idCardNumber" placeholder="Enter your ID card number">
-        </div>
-
-        <div class="form-control">
-            <label for="identificationNumber">Identification Number: </label>
-            <input id="identificationNumber" type="text" formControlName="identificationNumber" placeholder="Enter your identification number">
-        </div>
-
-
         <h4>Ticket info:</h4>
+        <div formGroupName="ticket">
 
-        <div class="form-control">
-            <label for="email">Type: </label>
-            <select id="cars" name="cars">
-                <option value="standart">Standart</option>
-                <option value="child">Child</option>
-                <option value="retired">Retired</option>
-            </select>
+            <div class="form-control custom-select">
+                <label for="type" class="label-text">Type: </label>
+                <select id="type" name="type" formControlName="type">
+                    <option value="standart">Standart</option>
+                    <option value="child">Child</option>
+                    <option value="retired">Retired</option>
+                </select>
+            </div>
+
+            <div class="form-control">
+                <label for="duration" class="label-text">Duration: </label>
+                <select id="duration" name="duration" formControlName="duration">
+                    <option value="default"></option>
+                    <option *ngFor="let duration of durations" [value]="duration">{{duration}}</option>
+
+                </select>
+            </div>
+
         </div>
 
-        <div class="form-control">
-            <label for="duration">Duration: </label>
-            <select id="cars" name="cars">
-                <option value="1week">1 week</option>
-                <option value="1month">1 month</option>
-                <option value="6months">6 months</option>
-                <option value="1year">1 year</option>
-            </select>
-        </div>
-        <p>Total: {{price}}</p>
+
+        <p class="center">Total: {{price}}</p>
         <app-button color="blue" text="Submit" (click)="submitData()"></app-button>
     </form>
 
