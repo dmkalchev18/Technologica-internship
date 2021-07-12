@@ -12,7 +12,7 @@ export class FormComponent implements OnInit {
   durations = [
     "1 week",
     "1 month",
-    "6 month",
+    "6 months",
     "1 year"
   ]
 
@@ -33,6 +33,8 @@ export class FormComponent implements OnInit {
       firstName: ['', Validators.required],
       middleName: ['', Validators.required],
       lastName: ['', Validators.required],
+      gender: ['', Validators.required],
+      age: ['', Validators.required],
       idCardNumber: ['', Validators.required],
       identificationNumber: ['', Validators.required],
       phoneNumber: ['', Validators.required],
@@ -60,7 +62,7 @@ export class FormComponent implements OnInit {
 
     //this.ticketForm.controls['ticket'].value.duration;
 
-    this.ticketForm.controls['ticket'].valueChanges.subscribe((value) => { this.price = (this.calcTicket(this.price, this.ticketForm.controls['ticket'].value.duration, this.ticketForm.controls['ticket'].value.type)) });
+    this.ticketForm.controls['ticket'].valueChanges.subscribe((value) => { this.price = (this.calcTicket()) });
 
     // this.ticketForm.controls['ticket'].valueChanges.subscribe(console.log)
     // this.ticketForm.valueChanges.subscribe()
@@ -69,16 +71,28 @@ export class FormComponent implements OnInit {
 
   }
 
-  calcTicket(price: number, duration: string, type: string) {
-    price = this.calcByDuration(duration);
-    return price;
+  // calcTicket(price: number, duration: string, type: string) {
+  //   price = this.calcByDuration(duration);
+  //   price = this.calcByType(type,this.ticketForm.controls['ticket'].value.age,"male");
+  //   return price;
+  // }
+
+  calcTicket() {
+    let duration: string = this.ticketForm.controls['ticket'].value.duration;
+    let type: string = this.ticketForm.controls['ticket'].value.type;
+    let age: number = this.ticketForm.controls['ticket'].value.age;
+    let gender: string = this.ticketForm.controls['ticket'].value.gender;
+
+    this.price = this.calcByDuration(duration);
+    this.price = this.calcByType(type, age, gender);
+    return this.price;
   }
 
   calcByDuration(duration: string) {
-    return (duration === "1 month") ? 8 : (duration === "1 week") ? 4 : (duration === "6 month") ? 15 : (duration === "1 year") ? 25 : 0;
+    return (duration === "1 month") ? 8 : (duration === "1 week") ? 4 : (duration === "6 months") ? 15 : (duration === "1 year") ? 25 : 0;
   }
-  calcByType(type: string, age: number) {
-    // return (age>=14 && age <=18 && type==="child") || (age >=65) ? this.price /=2;
+  calcByType(type: string, age: number, gender: string) {
+    return (age >= 14 && age <= 18 && type === "child") || (age >= 60 && gender === "male" && type === "retired" || age >= 65 && gender === "female" && type === "retired") ? this.price /= 2 : this.price = this.price;
   }
 
 }
