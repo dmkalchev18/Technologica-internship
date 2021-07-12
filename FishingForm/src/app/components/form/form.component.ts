@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -16,13 +17,19 @@ export class FormComponent implements OnInit {
     "1 year"
   ]
 
+  types = [
+    "Standart",
+    "Child",
+    "Retired"
+  ]
+
   price: number = 0;
 
   // 1 week = 4 lv
   // 1 month = 8 lv
   // 6 months = 15 lv
   // 1 year = 25 lv 
-  // year (14-18 || >60w || >65m) -> price /= 2
+  // year (14-18 || >=60w || >=65m) -> price /= 2
 
   submitData() {
     console.log('Submit works')
@@ -37,8 +44,8 @@ export class FormComponent implements OnInit {
       age: ['', Validators.required],
       idCardNumber: ['', Validators.required],
       identificationNumber: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
-      email: ['', Validators.required],
+      phoneNumber: ['', Validators.required, Validators.maxLength(10), Validators.minLength(10)],
+      email: ['', Validators.required, Validators.email],
       address: this.fb.group({
         country: ['', Validators.required],
         area: ['', Validators.required],
@@ -49,33 +56,18 @@ export class FormComponent implements OnInit {
     }),
     ticket: this.fb.group({
       duration: ['', Validators.required],
-      type: ['', Validators.required]
+      type: ['', Validators.required],
+      price:this.price
     })
   });
-
-
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    // this.ticketForm.controls['ticket'].valueChanges.subscribe((value) => { console.log(value.duration) });
-
-    //this.ticketForm.controls['ticket'].value.duration;
-
+ 
     this.ticketForm.controls['ticket'].valueChanges.subscribe((value) => { this.price = (this.calcTicket()) });
 
-    // this.ticketForm.controls['ticket'].valueChanges.subscribe(console.log)
-    // this.ticketForm.valueChanges.subscribe()
-
-    //this.ticketForm.controls['ticket'].value.duration.valueChanges  .subscribe(console.log);
-
   }
-
-  // calcTicket(price: number, duration: string, type: string) {
-  //   price = this.calcByDuration(duration);
-  //   price = this.calcByType(type,this.ticketForm.controls['ticket'].value.age,"male");
-  //   return price;
-  // }
 
   calcTicket() {
     let duration: string = this.ticketForm.controls['ticket'].value.duration;
@@ -89,10 +81,10 @@ export class FormComponent implements OnInit {
   }
 
   calcByDuration(duration: string) {
-    return (duration === "1 month") ? 8 : (duration === "1 week") ? 4 : (duration === "6 months") ? 15 : (duration === "1 year") ? 25 : 0;
+    return (duration === "1 week") ? 4: (duration === "1 month") ? 8 : (duration === "6 months") ? 15 : (duration === "1 year") ? 25 : 0;
   }
   calcByType(type: string, age: number, gender: string) {
-    return (age >= 14 && age <= 18 && type === "child") || (age >= 60 && gender === "male" && type === "retired" || age >= 65 && gender === "female" && type === "retired") ? this.price /= 2 : this.price = this.price;
+    return (age >= 14 && age <= 18 && type === "Child") || (age >= 60 && gender === "male" && type === "Retired" || age >= 65 && gender === "female" && type === "Retired") ? this.price /= 2 : this.price = this.price;
   }
 
 }

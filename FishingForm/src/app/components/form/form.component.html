@@ -1,5 +1,5 @@
 <div class="container">
-    <h2>Buy a ticket</h2>
+    <h2>Buy З ticket</h2>
 
     <p>{{ticketForm.value | json}}</p>
 
@@ -9,10 +9,21 @@
         <div formGroupName="profile">
 
             <div class="form-control">
-                <!-- <app-input text="First Name"  identificator="firstName"></app-input> -->
+                <!-- <app-input text="First Name" identificator="firstName"></app-input> -->
                 <label for="firstName">First Name: </label>
                 <input id="firstName" type="text" formControlName="firstName" placeholder="Enter your first name">
             </div>
+
+
+            <!-- <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>First name</mat-label>
+                  <input matInput>
+                </mat-form-field>
+                <td><mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Long Last Name That Will Be Truncated</mat-label>
+                  <input matInput>
+                </mat-form-field> -->
+
 
             <div class="form-control">
                 <label for="middleName">Middle Name: </label>
@@ -39,12 +50,14 @@
 
             <div class="form-control">
                 <label for="idCardNumber">ID Card Number: </label>
-                <input id="idCardNumber" type="text" formControlName="idCardNumber" placeholder="Enter your ID card number">
+                <input id="idCardNumber" type="text" formControlName="idCardNumber"
+                    placeholder="Enter your ID card number">
             </div>
 
             <div class="form-control">
                 <label for="identificationNumber">Identification Number: </label>
-                <input id="identificationNumber" type="text" formControlName="identificationNumber" placeholder="Enter your identification number">
+                <input id="identificationNumber" type="text" formControlName="identificationNumber"
+                    placeholder="Enter your identification number">
             </div>
 
             <div formGroupName="address">
@@ -101,16 +114,14 @@
             <div class="form-control custom-select">
                 <label for="type" class="label-text">Type: </label>
                 <select id="type" name="type" formControlName="type">
-                    <option value="standart">Standart</option>
-                    <option value="child">Child</option>
-                    <option value="retired">Retired</option>
+                    <option *ngFor="let type of types" [value]="type">{{type}}</option>
                 </select>
             </div>
 
             <div class="form-control">
                 <label for="duration" class="label-text">Duration: </label>
                 <select id="duration" name="duration" formControlName="duration">
-                <!-- <option value="default"></option> -->
+                    <!-- <option value="default"></option> -->
                     <option *ngFor="let duration of durations" [value]="duration">{{duration}}</option>
 
                 </select>
