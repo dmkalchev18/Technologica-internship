@@ -9,6 +9,7 @@
         <div formGroupName="profile">
 
             <div class="form-control">
+                <!-- <app-input text="First Name"  identificator="firstName"></app-input> -->
                 <label for="firstName">First Name: </label>
                 <input id="firstName" type="text" formControlName="firstName" placeholder="Enter your first name">
             </div>
@@ -109,7 +110,7 @@
             <div class="form-control">
                 <label for="duration" class="label-text">Duration: </label>
                 <select id="duration" name="duration" formControlName="duration">
-                    <option value="default"></option>
+                <!-- <option value="default"></option> -->
                     <option *ngFor="let duration of durations" [value]="duration">{{duration}}</option>
 
                 </select>
@@ -118,10 +119,8 @@
         </div>
 
 
-        <p class="center">Total: {{price}}</p>
+        <p class="center">Total: {{price | currency : "BGN "}}</p>
         <app-button color="blue" text="Submit" (click)="submitData()"></app-button>
     </form>
-
-
 
 </div>
