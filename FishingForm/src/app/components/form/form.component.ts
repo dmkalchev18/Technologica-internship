@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { Ticket } from 'src/app/Ticket';
 
 
 @Component({
@@ -9,6 +10,10 @@ import { Validators } from '@angular/forms';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+
+  value = "";
+
+  @Output() onAddTicket: EventEmitter<Ticket> = new EventEmitter()
 
   durations = [
     "1 week",
@@ -31,17 +36,20 @@ export class FormComponent implements OnInit {
   // 1 year = 25 lv 
   // year (14-18 || >=60w || >=65m) -> price /= 2
 
+onSubmit()
+{
+  const newTicket = this.ticketForm.value;
+  this.onAddTicket.emit(newTicket)
+}
+
   submitData() {
-    console.log('Submit works')
   }
 
   ticketForm = this.fb.group({
     profile: this.fb.group({
-      firstName: ['', Validators.required],
+      firstName: ['', Validators.required, Validators.minLength(5)],
       middleName: ['', Validators.required],
       lastName: ['', Validators.required],
-      gender: ['', Validators.required],
-      age: ['', Validators.required],
       idCardNumber: ['', Validators.required],
       identificationNumber: ['', Validators.required],
       phoneNumber: ['', Validators.required, Validators.maxLength(10), Validators.minLength(10)],
@@ -74,6 +82,8 @@ export class FormComponent implements OnInit {
     let type: string = this.ticketForm.controls['ticket'].value.type;
     let age: number = this.ticketForm.controls['ticket'].value.age;
     let gender: string = this.ticketForm.controls['ticket'].value.gender;
+
+console.log(this.ticketForm.controls['ticket'].hasError('required'));
 
     this.price = this.calcByDuration(duration);
     this.price = this.calcByType(type, age, gender);

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { Ticket } from './Ticket';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +10,7 @@ import { Validators } from '@angular/forms';
 })
 export class AppComponent {
 
-  
+  addTicket(ticket:Ticket) {
+    console.log(ticket)
+  }
 }
