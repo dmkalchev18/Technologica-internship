@@ -1,5 +1,5 @@
 <div class="container">
-    <h2>Buy З ticket</h2>
+    <h2>Buy a ticket</h2>
 
     <p>{{ticketForm.value | json}}</p>
 
@@ -16,7 +16,8 @@
 
                 <mat-form-field class="ticket-form-field" appearance="fill">
                     <mat-label>First Name</mat-label>
-                    <input matInput type="text" formControlName="firstName" [(ngModel)]="value">
+                    <input matInput id="firstName" type="text" formControlName="firstName" [(ngModel)]="value" >
+                    <mat-error *ngIf="this.ticketForm.get('profile.firstName')?.touched && (this.ticketForm.get('profile.firstName')?.hasError('required') || this.ticketForm.get('profile.firstName')?.hasError('minlength'))">Invalid value</mat-error>
                   </mat-form-field>
             </div>
 
@@ -53,10 +54,10 @@
                 <mat-form-field class="form-full-width" appearance="fill">
                     <mat-label>Email</mat-label>
                     <input type="email" matInput formControlName="email" placeholder="Ex.mes@example.com">
-                    <mat-error *ngIf="ticketForm.controls['ticket'].hasError('email') && !ticketForm.controls['ticket'].hasError('required')">
+                    <mat-error *ngIf="(this.ticketForm.get('profile.email')?.touched && this.ticketForm.get('profile.email')?.hasError('email'))">
                       Please enter a valid email address
                     </mat-error>
-                    <mat-error *ngIf="ticketForm.controls['ticket'].hasError('required')">
+                    <mat-error *ngIf="this.ticketForm.get('profile.email')?.hasError('required')">
                       Email is <strong>required</strong>
                     </mat-error>
                   </mat-form-field> 

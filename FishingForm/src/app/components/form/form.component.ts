@@ -36,24 +36,23 @@ export class FormComponent implements OnInit {
   // 1 year = 25 lv 
   // year (14-18 || >=60w || >=65m) -> price /= 2
 
-onSubmit()
-{
-  const newTicket = this.ticketForm.value;
-  this.onAddTicket.emit(newTicket)
-}
+  onSubmit() {
+    const newTicket = this.ticketForm.value;
+    this.onAddTicket.emit(newTicket)
+  }
 
   submitData() {
   }
 
   ticketForm = this.fb.group({
     profile: this.fb.group({
-      firstName: ['', Validators.required, Validators.minLength(5)],
+      firstName: ['', [Validators.required, Validators.minLength(5)]],
       middleName: ['', Validators.required],
       lastName: ['', Validators.required],
       idCardNumber: ['', Validators.required],
       identificationNumber: ['', Validators.required],
-      phoneNumber: ['', Validators.required, Validators.maxLength(10), Validators.minLength(10)],
-      email: ['', Validators.required, Validators.email],
+      phoneNumber: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
+      email: ['', [Validators.required, Validators.email]],
       address: this.fb.group({
         country: ['', Validators.required],
         area: ['', Validators.required],
@@ -65,36 +64,35 @@ onSubmit()
     ticket: this.fb.group({
       duration: ['', Validators.required],
       type: ['', Validators.required],
-      price:this.price
+      price: this.price
     })
   });
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
- 
+
     this.ticketForm.controls['ticket'].valueChanges.subscribe((value) => { this.price = (this.calcTicket()) });
 
   }
 
   calcTicket() {
     let duration: string = this.ticketForm.controls['ticket'].value.duration;
-    let type: string = this.ticketForm.controls['ticket'].value.type;
-    let age: number = this.ticketForm.controls['ticket'].value.age;
-    let gender: string = this.ticketForm.controls['ticket'].value.gender;
+    let type: string = this.ticketForm.controls['ticket'].value.type; 
 
-console.log(this.ticketForm.controls['ticket'].hasError('required'));
+    // console.log((this.ticketForm.controls['profile'] as FormGroup).controls['firstName'].hasError('required'));
+    console.log(this.ticketForm.get('profile.firstName')?.hasError('required'));
 
     this.price = this.calcByDuration(duration);
-    this.price = this.calcByType(type, age, gender);
+    this.price = this.calcByType(type);
     return this.price;
   }
 
   calcByDuration(duration: string) {
-    return (duration === "1 week") ? 4: (duration === "1 month") ? 8 : (duration === "6 months") ? 15 : (duration === "1 year") ? 25 : 0;
+    return (duration === "1 week") ? 4 : (duration === "1 month") ? 8 : (duration === "6 months") ? 15 : (duration === "1 year") ? 25 : 0;
   }
-  calcByType(type: string, age: number, gender: string) {
-    return (age >= 14 && age <= 18 && type === "Child") || (age >= 60 && gender === "male" && type === "Retired" || age >= 65 && gender === "female" && type === "Retired") ? this.price /= 2 : this.price = this.price;
+  calcByType(type: string) {
+    return (type === "Child"|| type === "Retired")  ? this.price /= 2 : this.price = this.price;
   }
 
 }
