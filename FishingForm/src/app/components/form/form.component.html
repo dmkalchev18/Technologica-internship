@@ -19,7 +19,7 @@
                     <input matInput id="firstName" type="text" formControlName="firstName">
                     <mat-error
                         *ngIf="this.ticketForm.get('profile.firstName')?.touched && this.ticketForm.get('profile.firstName')?.hasError('required')">
-                        Полето е <strong> задължително </strong></mat-error>
+                        Полето е <strong> задължително! </strong></mat-error>
                 </mat-form-field>
             </div>
 
@@ -29,7 +29,7 @@
                     <input matInput id="middleName" type="text" formControlName="middleName">
                     <mat-error
                         *ngIf="this.ticketForm.get('profile.middleName')?.touched && this.ticketForm.get('profile.middleName')?.hasError('required')">
-                        Полето е <strong> задължително </strong></mat-error>
+                        Полето е <strong> задължително! </strong></mat-error>
                 </mat-form-field>
             </div>
 
@@ -39,7 +39,7 @@
                     <input matInput id="lastName" type="text" formControlName="lastName">
                     <mat-error
                         *ngIf="this.ticketForm.get('profile.lastName')?.touched && this.ticketForm.get('profile.lastName')?.hasError('required')">
-                        Полето е <strong> задължително </strong></mat-error>
+                        Полето е <strong> задължително! </strong></mat-error>
                 </mat-form-field>
             </div>
 
@@ -50,8 +50,15 @@
                     <input matInput id="phoneNumber" type="text" formControlName="phoneNumber">
                     <mat-error
                         *ngIf="this.ticketForm.get('profile.phoneNumber')?.touched && this.ticketForm.get('profile.phoneNumber')?.hasError('required')">
-                        Полето е <strong> задължително </strong></mat-error>
+                        Полето е <strong> задължително! </strong></mat-error>
                 </mat-form-field>
+
+                <!-- <mat-form-field appearance="fill">
+                    <mat-label>Phone number</mat-label>
+                    <example-tel-input  id="phoneNumber" type="text" formControlName="phoneNumber" required></example-tel-input>
+                    <mat-icon matSuffix>phone</mat-icon>
+                    <mat-hint>Include area code</mat-hint>
+                </mat-form-field> -->
             </div>
 
             <div class="form-control">
@@ -66,7 +73,7 @@
                         Моля въведете валидна ел. поща
                     </mat-error>
                     <mat-error *ngIf="this.ticketForm.get('profile.email')?.hasError('required')">
-                        Email is <strong>required</strong>
+                        Email is <strong>required!</strong>
                     </mat-error>
                 </mat-form-field>
 
@@ -79,7 +86,7 @@
                     <input matInput id="idCardNumber" type="number" formControlName="idCardNumber">
                     <mat-error
                         *ngIf="this.ticketForm.get('profile.idCardNumber')?.touched && this.ticketForm.get('profile.idCardNumber')?.hasError('required')">
-                        Полето е <strong> задължително </strong></mat-error>
+                        Полето е <strong> задължително! </strong></mat-error>
                 </mat-form-field>
             </div>
 
@@ -87,14 +94,17 @@
 
                 <mat-form-field class="ticket-form-field" appearance="fill">
                     <mat-label>ЕГН</mat-label>
-                    <input matInput id="identificationNumber" type="text" formControlName="identificationNumber">
-
+                    <input matInput id="identificationNumber" type="number" formControlName="identificationNumber">
                     <mat-error
-                        *ngIf="this.ticketForm.get('profile.identificationNumber')?.hasError('minLength') && this.ticketForm.get('profile.identificationNumber')?.hasError('maxLength')">
-                        Полета трябва да е дълго <strong> 9 символа </strong> 
+                        *ngIf="this.ticketForm.get('profile.identificationNumber')?.hasError('forbiddenName') ">
+                        Невалидно ЕГН! 
+                    </mat-error>
+                    <mat-error
+                        *ngIf="this.ticketForm.get('profile.identificationNumber')?.hasError('min') ">
+                        Полета трябва да е с дължина <strong> 9 символа! </strong> 
                     </mat-error>
                     <mat-error *ngIf="this.ticketForm.get('profile.identificationNumber')?.hasError('required')">
-                        Полето е <strong> задължително </strong>
+                        Полето е <strong> задължително! </strong>
                     </mat-error>
 
                 </mat-form-field>
@@ -114,7 +124,7 @@
                         </mat-select>
                         <mat-error
                         *ngIf="this.ticketForm.get('profile.address.country')?.touched && this.ticketForm.get('profile.address.country')?.hasError('required')">
-                        Полето е <strong> задължително </strong></mat-error>
+                        Полето е <strong> задължително! </strong></mat-error>
                     </mat-form-field>
 
                 </div>
@@ -130,7 +140,7 @@
                         </mat-select>
                         <mat-error
                         *ngIf="this.ticketForm.get('profile.address.area')?.touched && this.ticketForm.get('profile.address.area')?.hasError('required')">
-                        Полето е <strong> задължително </strong></mat-error>
+                        Полето е <strong> задължително! </strong></mat-error>
                     </mat-form-field>
                 </div>
 
@@ -145,7 +155,7 @@
                         </mat-select>
                         <mat-error
                         *ngIf="this.ticketForm.get('profile.address.municipality')?.touched && this.ticketForm.get('profile.address.municipality')?.hasError('required')">
-                        Полето е <strong> задължително </strong></mat-error>
+                        Полето е <strong> задължително! </strong></mat-error>
                     </mat-form-field>
                 </div>
 
@@ -160,7 +170,7 @@
                         </mat-select>
                         <mat-error
                         *ngIf="this.ticketForm.get('profile.address.city')?.touched && this.ticketForm.get('profile.address.city')?.hasError('required')">
-                        Полето е <strong> задължително </strong></mat-error>
+                        Полето е <strong> задължително! </strong></mat-error>
                     </mat-form-field>
                 </div>
 
@@ -170,7 +180,7 @@
                         <input matInput id="street" type="text" formControlName="street">
                         <mat-error
                             *ngIf="this.ticketForm.get('profile.address.street')?.touched && this.ticketForm.get('profile.address.street')?.hasError('required')">
-                            Полето е <strong> задължително </strong></mat-error>
+                            Полето е <strong> задължително! </strong></mat-error>
                     </mat-form-field>
                 </div>
             </div>
@@ -189,7 +199,7 @@
                     </mat-select>
                     <mat-error
                         *ngIf="this.ticketForm.get('ticket.type')?.touched && this.ticketForm.get('ticket.type')?.hasError('required')">
-                        Полето е <strong> задължително </strong></mat-error>
+                        Полето е <strong> задължително! </strong></mat-error>
                 </mat-form-field>
             </div>
 
@@ -202,7 +212,7 @@
                     </mat-select>
                     <mat-error
                         *ngIf="this.ticketForm.get('ticket.duration')?.touched && this.ticketForm.get('ticket.duration')?.hasError('required')">
-                        Полето е <strong> задължително </strong></mat-error>
+                        Полето е <strong> задължително! </strong></mat-error>
                 </mat-form-field>
             </div>
 

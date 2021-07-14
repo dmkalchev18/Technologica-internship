@@ -27,54 +27,28 @@
       ]
     },
     {
-      "firstName": "1",
-      "middleName": "1",
-      "lastName": "1",
-      "idCardNumber": 1,
-      "IdentificationNumber": 1,
-      "phoneNumber": 1,
-      "email": "1",
-      "address": [
-        {
-          "country": "1",
+      "profile": {
+        "firstName": "Иван",
+        "middleName": "Стоянов",
+        "lastName": "Иванов",
+        "idCardNumber": -2,
+        "identificationNumber": "-112355666",
+        "phoneNumber": "0895973436",
+        "email": "a@a.a",
+        "address": {
+          "country": "3",
           "area": "1",
           "municipality": "1",
           "city": "1",
-          "street": "1"
+          "street": "car boris -5"
         }
-      ],
-      "ticket": [
-        {
-          "duration": "1",
-          "type": "1",
-          "price": "1"
-        }
-      ]
-    },
-    {
-      "firstName": "1",
-      "middleName": "1",
-      "lastName": "1",
-      "idCardNumber": 1,
-      "IdentificationNumber": 1,
-      "phoneNumber": 1,
-      "email": "1",
-      "address": [
-        {
-          "country": "1",
-          "area": "1",
-          "municipality": "1",
-          "city": "1",
-          "street": "1"
-        }
-      ],
-      "ticket": [
-        {
-          "duration": "2",
-          "type": "2",
-          "price": "2"
-        }
-      ]
+      },
+      "ticket": {
+        "duration": "1 година",
+        "type": "Детски",
+        "price": 0
+      },
+      "id": 8
     },
     {
       "profile": {
@@ -98,55 +72,7 @@
         "type": "",
         "price": 0
       },
-      "id": 2
-    },
-    {
-      "profile": {
-        "firstName": "",
-        "middleName": "",
-        "lastName": "",
-        "idCardNumber": "",
-        "identificationNumber": "",
-        "phoneNumber": "",
-        "email": "",
-        "address": {
-          "country": "",
-          "area": "",
-          "municipality": "",
-          "city": "",
-          "street": ""
-        }
-      },
-      "ticket": {
-        "duration": "",
-        "type": "",
-        "price": 0
-      },
-      "id": 3
-    },
-    {
-      "profile": {
-        "firstName": "",
-        "middleName": "",
-        "lastName": "",
-        "idCardNumber": "",
-        "identificationNumber": 1,
-        "phoneNumber": "",
-        "email": "",
-        "address": {
-          "country": "",
-          "area": "",
-          "municipality": "",
-          "city": "",
-          "street": "fdsf"
-        }
-      },
-      "ticket": {
-        "duration": "",
-        "type": "",
-        "price": 0
-      },
-      "id": 4
+      "id": 9
     }
   ]
 }
