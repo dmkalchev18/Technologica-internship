@@ -11,7 +11,6 @@ import { Ticket } from 'src/app/Ticket';
 })
 export class FormComponent implements OnInit {
 
-  value = "";
 
   @Output() onAddTicket: EventEmitter<Ticket> = new EventEmitter()
 
@@ -23,8 +22,8 @@ export class FormComponent implements OnInit {
   ]
 
   types = [
-    "Standart",
     "Child",
+    "Standart",
     "Retired"
   ]
 
@@ -46,11 +45,11 @@ export class FormComponent implements OnInit {
 
   ticketForm = this.fb.group({
     profile: this.fb.group({
-      firstName: ['', [Validators.required, Validators.minLength(5)]],
+      firstName: ['', [Validators.required]],
       middleName: ['', Validators.required],
       lastName: ['', Validators.required],
       idCardNumber: ['', Validators.required],
-      identificationNumber: ['', Validators.required],
+      identificationNumber: ['', Validators.required, Validators.minLength(9), Validators.maxLength(9)],
       phoneNumber: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
       email: ['', [Validators.required, Validators.email]],
       address: this.fb.group({
