@@ -47,6 +47,30 @@
         "price": 0
       },
       "id": 2
+    },
+    {
+      "profile": {
+        "firstName": "Иван",
+        "middleName": "Стоилов",
+        "lastName": "Колев",
+        "idCardNumber": 134587564,
+        "identificationNumber": 1107184970,
+        "phoneNumber": "0895426472",
+        "email": "Ivan@abv.bg",
+        "address": {
+          "country": "България",
+          "area": "Бургас",
+          "municipality": "Бургас",
+          "city": "гр. Бургас",
+          "street": "Захари Стоянов"
+        }
+      },
+      "ticket": {
+        "duration": "1 година",
+        "type": "Стандартен",
+        "price": 0
+      },
+      "id": 3
     }
   ]
 }

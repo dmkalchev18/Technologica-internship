@@ -2,7 +2,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
 import { Validators, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { Ticket } from 'src/app/Ticket';
-
+import { citiesAndVillages } from '../../addressData/CitiesAndVillages';
+import { areas } from '../../addressData/areas';
+import { municipalities } from '../../addressData/municipalities';
+import { countries } from '../../addressData/countries';
 
 @Component({
   selector: 'app-form',
@@ -27,6 +30,11 @@ export class FormComponent implements OnInit {
     "Пенсионерски"
   ]
 
+  citiesAndVillages = citiesAndVillages;
+  areas = areas;
+  municipalities = municipalities;
+  countries = countries;
+
   price: number = 0;
 
   // 1 седмица = 4 lv
@@ -37,18 +45,12 @@ export class FormComponent implements OnInit {
 
   onSubmit() {
     if (this.ticketForm.status === "VALID") {
-      console.log("shte se pratq")
       const newTicket = this.ticketForm.value;
       this.onAddTicket.emit(newTicket)
-
-    }
-    else{
-      console.log("nqma da se pratq")
     }
   }
 
-  submitData() {
-  }
+
 
   forbiddenNameValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
@@ -92,6 +94,7 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
 
     this.ticketForm.controls['ticket'].valueChanges.subscribe((value) => { this.price = (this.calcTicket()) });
+    //this.ticketForm.controls['ticket.price']?.setValue(this.price);
 
   }
 

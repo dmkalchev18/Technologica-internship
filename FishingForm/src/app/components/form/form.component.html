@@ -107,10 +107,7 @@
                     <mat-form-field appearance="fill" class="ticket-form-field">
                         <mat-label>Държава</mat-label>
                         <mat-select disableRipple id="country" name="country" formControlName="country">
-                            <!-- To do: Implement ngFor -->
-                            <mat-option value="1">Option 1</mat-option>
-                            <mat-option value="2">Option 2</mat-option>
-                            <mat-option value="3">Option 3</mat-option>
+                            <mat-option *ngFor="let country of countries" [value]="country">{{country}}</mat-option>
                         </mat-select>
                         <mat-error *ngIf="this.ticketForm.get('profile.address.country')?.touched && this.ticketForm.get('profile.address.country')?.hasError('required')">
                             Полето е <strong> задължително! </strong></mat-error>
@@ -122,10 +119,7 @@
                     <mat-form-field appearance="fill" class="ticket-form-field">
                         <mat-label>Област</mat-label>
                         <mat-select disableRipple id="area" name="area" formControlName="area">
-                            <!-- To do: Implement ngFor -->
-                            <mat-option value="1">Option 1</mat-option>
-                            <mat-option value="2">Option 2</mat-option>
-                            <mat-option value="3">Option 3</mat-option>
+                            <mat-option *ngFor="let area of areas" [value]="area">{{area}}</mat-option>
                         </mat-select>
                         <mat-error *ngIf="this.ticketForm.get('profile.address.area')?.touched && this.ticketForm.get('profile.address.area')?.hasError('required')">
                             Полето е <strong> задължително! </strong></mat-error>
@@ -136,10 +130,8 @@
                     <mat-form-field appearance="fill" class="ticket-form-field">
                         <mat-label>Община</mat-label>
                         <mat-select disableRipple id="municipality" name="municipality" formControlName="municipality">
-                            <!-- To do: Implement ngFor -->
-                            <mat-option value="1">Option 1</mat-option>
-                            <mat-option value="2">Option 2</mat-option>
-                            <mat-option value="3">Option 3</mat-option>
+                            <mat-option *ngFor="let municipalities of municipalities" [value]="municipalities">
+                                {{municipalities}}</mat-option>
                         </mat-select>
                         <mat-error *ngIf="this.ticketForm.get('profile.address.municipality')?.touched && this.ticketForm.get('profile.address.municipality')?.hasError('required')">
                             Полето е <strong> задължително! </strong></mat-error>
@@ -148,12 +140,9 @@
 
                 <div class="form-control">
                     <mat-form-field appearance="fill" class="ticket-form-field">
-                        <mat-label>Град</mat-label>
+                        <mat-label>Град / Село</mat-label>
                         <mat-select disableRipple id="city" name="city" formControlName="city">
-                            <!-- To do: Implement ngFor -->
-                            <mat-option value="1">Option 1</mat-option>
-                            <mat-option value="2">Option 2</mat-option>
-                            <mat-option value="3">Option 3</mat-option>
+                            <mat-option *ngFor="let cv of citiesAndVillages" [value]="cv">{{cv}}</mat-option>
                         </mat-select>
                         <mat-error *ngIf="this.ticketForm.get('profile.address.city')?.touched && this.ticketForm.get('profile.address.city')?.hasError('required')">
                             Полето е <strong> задължително! </strong></mat-error>
@@ -203,7 +192,7 @@
 
 
         <p class="center">Цена: {{price | currency : "BGN "}}</p>
-        <app-button color="blue" text="Изпрати" (click)="submitData()"></app-button>
+        <app-button color="blue" text="Изпрати"></app-button>
     </form>
 
 </div>
