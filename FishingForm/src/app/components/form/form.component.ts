@@ -36,13 +36,14 @@ export class FormComponent implements OnInit {
   // year (14-18 || >=60w || >=65m) -> price /= 2
 
   onSubmit() {
-    if (this.ticketForm.errors) {
+    if (this.ticketForm.status === "VALID") {
+      console.log("shte se pratq")
       const newTicket = this.ticketForm.value;
       this.onAddTicket.emit(newTicket)
 
     }
     else{
-      console.log("dadasddasdffdfdf")
+      console.log("nqma da se pratq")
     }
   }
 
@@ -51,7 +52,7 @@ export class FormComponent implements OnInit {
 
   forbiddenNameValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
-      let egn = control.value.toString();
+      let egn = control.value?.toString();
 
       if (egn.length == 0) {
         return null;
@@ -67,7 +68,7 @@ export class FormComponent implements OnInit {
       firstName: ['', [Validators.required]],
       middleName: ['', Validators.required],
       lastName: ['', Validators.required],
-      idCardNumber: ['', Validators.required],
+      idCardNumber: ['', [Validators.required, Validators.min(100000000), Validators.max(999999999)]],
       identificationNumber: ['', [Validators.required, Validators.min(1000000000), Validators.max(9999999999), this.forbiddenNameValidator()]],
       phoneNumber: ['', [Validators.required, Validators.pattern("[0-9]{10}")]],
       email: ['', [Validators.required, Validators.email]],

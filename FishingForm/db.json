@@ -2,19 +2,19 @@
   "formData": [
     {
       "profile": {
-        "firstName": "Иван",
-        "middleName": "Стоянов",
-        "lastName": "Иванов",
-        "idCardNumber": -2,
-        "identificationNumber": "-112355666",
-        "phoneNumber": "0895973436",
-        "email": "a@a.a",
+        "firstName": "a",
+        "middleName": "a",
+        "lastName": "a",
+        "idCardNumber": 123456789,
+        "identificationNumber": 1610207597,
+        "phoneNumber": "1234567894",
+        "email": "a@a",
         "address": {
-          "country": "3",
-          "area": "1",
+          "country": "2",
+          "area": "3",
           "municipality": "1",
           "city": "1",
-          "street": "car boris -5"
+          "street": "da"
         }
       },
       "ticket": {
@@ -22,7 +22,31 @@
         "type": "Детски",
         "price": 0
       },
-      "id": 8
+      "id": 1
+    },
+    {
+      "profile": {
+        "firstName": "a",
+        "middleName": "a",
+        "lastName": "a",
+        "idCardNumber": 123456789,
+        "identificationNumber": 1610207597,
+        "phoneNumber": "1234567894",
+        "email": "a@a",
+        "address": {
+          "country": "2",
+          "area": "3",
+          "municipality": "1",
+          "city": "1",
+          "street": "da"
+        }
+      },
+      "ticket": {
+        "duration": "1 година",
+        "type": "Детски",
+        "price": 0
+      },
+      "id": 2
     }
   ]
 }

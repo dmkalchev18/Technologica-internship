@@ -17,8 +17,7 @@
                 <mat-form-field class="ticket-form-field" appearance="fill">
                     <mat-label>Първо име</mat-label>
                     <input matInput id="firstName" type="text" formControlName="firstName">
-                    <mat-error
-                        *ngIf="this.ticketForm.get('profile.firstName')?.touched && this.ticketForm.get('profile.firstName')?.hasError('required')">
+                    <mat-error *ngIf="this.ticketForm.get('profile.firstName')?.touched && this.ticketForm.get('profile.firstName')?.hasError('required')">
                         Полето е <strong> задължително! </strong></mat-error>
                 </mat-form-field>
             </div>
@@ -27,8 +26,7 @@
                 <mat-form-field class="ticket-form-field" appearance="fill">
                     <mat-label>Бащино име</mat-label>
                     <input matInput id="middleName" type="text" formControlName="middleName">
-                    <mat-error
-                        *ngIf="this.ticketForm.get('profile.middleName')?.touched && this.ticketForm.get('profile.middleName')?.hasError('required')">
+                    <mat-error *ngIf="this.ticketForm.get('profile.middleName')?.touched && this.ticketForm.get('profile.middleName')?.hasError('required')">
                         Полето е <strong> задължително! </strong></mat-error>
                 </mat-form-field>
             </div>
@@ -37,8 +35,7 @@
                 <mat-form-field class="ticket-form-field" appearance="fill">
                     <mat-label>Фамилия</mat-label>
                     <input matInput id="lastName" type="text" formControlName="lastName">
-                    <mat-error
-                        *ngIf="this.ticketForm.get('profile.lastName')?.touched && this.ticketForm.get('profile.lastName')?.hasError('required')">
+                    <mat-error *ngIf="this.ticketForm.get('profile.lastName')?.touched && this.ticketForm.get('profile.lastName')?.hasError('required')">
                         Полето е <strong> задължително! </strong></mat-error>
                 </mat-form-field>
             </div>
@@ -48,11 +45,9 @@
                 <mat-form-field class="ticket-form-field" appearance="fill">
                     <mat-label>Тел. номер</mat-label>
                     <input matInput id="phoneNumber" type="text" formControlName="phoneNumber">
-                    <mat-error
-                        *ngIf="this.ticketForm.get('profile.phoneNumber')?.touched && this.ticketForm.get('profile.phoneNumber')?.hasError('required')">
+                    <mat-error *ngIf="this.ticketForm.get('profile.phoneNumber')?.touched && this.ticketForm.get('profile.phoneNumber')?.hasError('required')">
                         Полето е <strong> задължително! </strong></mat-error>
-                        <mat-error
-                        *ngIf="this.ticketForm.get('profile.phoneNumber')?.hasError('pattern')">
+                    <mat-error *ngIf="this.ticketForm.get('profile.phoneNumber')?.hasError('pattern')">
                         Полето трява да съдържа <strong> 10 цифри! </strong></mat-error>
                 </mat-form-field>
 
@@ -65,12 +60,11 @@
                 <mat-form-field class="form-full-width" appearance="fill">
                     <mat-label>Ел. поща</mat-label>
                     <input type="email" matInput formControlName="email" placeholder="Ex.mes@example.com">
-                    <mat-error
-                        *ngIf="(this.ticketForm.get('profile.email')?.touched && this.ticketForm.get('profile.email')?.hasError('email'))">
+                    <mat-error *ngIf="(this.ticketForm.get('profile.email')?.touched && this.ticketForm.get('profile.email')?.hasError('email'))">
                         Моля въведете <strong> валидна ел. поща </strong>
                     </mat-error>
                     <mat-error *ngIf="this.ticketForm.get('profile.email')?.hasError('required')">
-                        Полето е  <strong>задължителна!</strong>
+                        Полето е <strong>задължителна!</strong>
                     </mat-error>
                 </mat-form-field>
 
@@ -81,9 +75,10 @@
                 <mat-form-field class="ticket-form-field" appearance="fill">
                     <mat-label>Номер на лична карта</mat-label>
                     <input matInput id="idCardNumber" type="number" formControlName="idCardNumber">
-                    <mat-error
-                        *ngIf="this.ticketForm.get('profile.idCardNumber')?.touched && this.ticketForm.get('profile.idCardNumber')?.hasError('required')">
+                    <mat-error *ngIf="this.ticketForm.get('profile.idCardNumber')?.touched && this.ticketForm.get('profile.idCardNumber')?.hasError('required')">
                         Полето е <strong> задължително! </strong></mat-error>
+                    <mat-error *ngIf="this.ticketForm.get('profile.idCardNumber')?.hasError('min') || this.ticketForm.get('profile.idCardNumber')?.hasError('max')">
+                        Полето трябва да е с дължина <strong> 9 символа! </strong></mat-error>
                 </mat-form-field>
             </div>
 
@@ -92,13 +87,11 @@
                 <mat-form-field class="ticket-form-field" appearance="fill">
                     <mat-label>ЕГН</mat-label>
                     <input matInput id="identificationNumber" type="number" formControlName="identificationNumber">
-                    <mat-error
-                        *ngIf="this.ticketForm.get('profile.identificationNumber')?.hasError('forbiddenName') ">
-                        Невалидно ЕГН! 
+                    <mat-error *ngIf="this.ticketForm.get('profile.identificationNumber')?.hasError('forbiddenName') ">
+                        Невалидно ЕГН!
                     </mat-error>
-                    <mat-error
-                        *ngIf="this.ticketForm.get('profile.identificationNumber')?.hasError('min')">
-                        Полето трябва да е с дължина <strong> 10 символа! </strong> 
+                    <mat-error *ngIf="this.ticketForm.get('profile.identificationNumber')?.hasError('min')">
+                        Полето трябва да е с дължина <strong> 10 символа! </strong>
                     </mat-error>
                     <mat-error *ngIf="this.ticketForm.get('profile.identificationNumber')?.hasError('required')">
                         Полето е <strong> задължително! </strong>
@@ -119,9 +112,8 @@
                             <mat-option value="2">Option 2</mat-option>
                             <mat-option value="3">Option 3</mat-option>
                         </mat-select>
-                        <mat-error
-                        *ngIf="this.ticketForm.get('profile.address.country')?.touched && this.ticketForm.get('profile.address.country')?.hasError('required')">
-                        Полето е <strong> задължително! </strong></mat-error>
+                        <mat-error *ngIf="this.ticketForm.get('profile.address.country')?.touched && this.ticketForm.get('profile.address.country')?.hasError('required')">
+                            Полето е <strong> задължително! </strong></mat-error>
                     </mat-form-field>
 
                 </div>
@@ -135,9 +127,8 @@
                             <mat-option value="2">Option 2</mat-option>
                             <mat-option value="3">Option 3</mat-option>
                         </mat-select>
-                        <mat-error
-                        *ngIf="this.ticketForm.get('profile.address.area')?.touched && this.ticketForm.get('profile.address.area')?.hasError('required')">
-                        Полето е <strong> задължително! </strong></mat-error>
+                        <mat-error *ngIf="this.ticketForm.get('profile.address.area')?.touched && this.ticketForm.get('profile.address.area')?.hasError('required')">
+                            Полето е <strong> задължително! </strong></mat-error>
                     </mat-form-field>
                 </div>
 
@@ -150,9 +141,8 @@
                             <mat-option value="2">Option 2</mat-option>
                             <mat-option value="3">Option 3</mat-option>
                         </mat-select>
-                        <mat-error
-                        *ngIf="this.ticketForm.get('profile.address.municipality')?.touched && this.ticketForm.get('profile.address.municipality')?.hasError('required')">
-                        Полето е <strong> задължително! </strong></mat-error>
+                        <mat-error *ngIf="this.ticketForm.get('profile.address.municipality')?.touched && this.ticketForm.get('profile.address.municipality')?.hasError('required')">
+                            Полето е <strong> задължително! </strong></mat-error>
                     </mat-form-field>
                 </div>
 
@@ -165,9 +155,8 @@
                             <mat-option value="2">Option 2</mat-option>
                             <mat-option value="3">Option 3</mat-option>
                         </mat-select>
-                        <mat-error
-                        *ngIf="this.ticketForm.get('profile.address.city')?.touched && this.ticketForm.get('profile.address.city')?.hasError('required')">
-                        Полето е <strong> задължително! </strong></mat-error>
+                        <mat-error *ngIf="this.ticketForm.get('profile.address.city')?.touched && this.ticketForm.get('profile.address.city')?.hasError('required')">
+                            Полето е <strong> задължително! </strong></mat-error>
                     </mat-form-field>
                 </div>
 
@@ -175,8 +164,7 @@
                     <mat-form-field class="ticket-form-field" appearance="fill">
                         <mat-label>Улица</mat-label>
                         <input matInput id="street" type="text" formControlName="street">
-                        <mat-error
-                            *ngIf="this.ticketForm.get('profile.address.street')?.touched && this.ticketForm.get('profile.address.street')?.hasError('required')">
+                        <mat-error *ngIf="this.ticketForm.get('profile.address.street')?.touched && this.ticketForm.get('profile.address.street')?.hasError('required')">
                             Полето е <strong> задължително! </strong></mat-error>
                     </mat-form-field>
                 </div>
@@ -194,8 +182,7 @@
                         <!-- To do: Implement ngFor -->
                         <mat-option *ngFor="let type of types" [value]="type">{{type}}</mat-option>
                     </mat-select>
-                    <mat-error
-                        *ngIf="this.ticketForm.get('ticket.type')?.touched && this.ticketForm.get('ticket.type')?.hasError('required')">
+                    <mat-error *ngIf="this.ticketForm.get('ticket.type')?.touched && this.ticketForm.get('ticket.type')?.hasError('required')">
                         Полето е <strong> задължително! </strong></mat-error>
                 </mat-form-field>
             </div>
@@ -207,8 +194,7 @@
                         <!-- To do: Implement ngFor -->
                         <mat-option *ngFor="let dur of durations" [value]="dur">{{dur}}</mat-option>
                     </mat-select>
-                    <mat-error
-                        *ngIf="this.ticketForm.get('ticket.duration')?.touched && this.ticketForm.get('ticket.duration')?.hasError('required')">
+                    <mat-error *ngIf="this.ticketForm.get('ticket.duration')?.touched && this.ticketForm.get('ticket.duration')?.hasError('required')">
                         Полето е <strong> задължително! </strong></mat-error>
                 </mat-form-field>
             </div>
