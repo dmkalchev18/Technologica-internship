@@ -51,14 +51,11 @@
                     <mat-error
                         *ngIf="this.ticketForm.get('profile.phoneNumber')?.touched && this.ticketForm.get('profile.phoneNumber')?.hasError('required')">
                         Полето е <strong> задължително! </strong></mat-error>
+                        <mat-error
+                        *ngIf="this.ticketForm.get('profile.phoneNumber')?.hasError('pattern')">
+                        Полето трява да съдържа <strong> 10 цифри! </strong></mat-error>
                 </mat-form-field>
 
-                <!-- <mat-form-field appearance="fill">
-                    <mat-label>Phone number</mat-label>
-                    <example-tel-input  id="phoneNumber" type="text" formControlName="phoneNumber" required></example-tel-input>
-                    <mat-icon matSuffix>phone</mat-icon>
-                    <mat-hint>Include area code</mat-hint>
-                </mat-form-field> -->
             </div>
 
             <div class="form-control">
@@ -70,10 +67,10 @@
                     <input type="email" matInput formControlName="email" placeholder="Ex.mes@example.com">
                     <mat-error
                         *ngIf="(this.ticketForm.get('profile.email')?.touched && this.ticketForm.get('profile.email')?.hasError('email'))">
-                        Моля въведете валидна ел. поща
+                        Моля въведете <strong> валидна ел. поща </strong>
                     </mat-error>
                     <mat-error *ngIf="this.ticketForm.get('profile.email')?.hasError('required')">
-                        Email is <strong>required!</strong>
+                        Полето е  <strong>задължителна!</strong>
                     </mat-error>
                 </mat-form-field>
 
@@ -100,8 +97,8 @@
                         Невалидно ЕГН! 
                     </mat-error>
                     <mat-error
-                        *ngIf="this.ticketForm.get('profile.identificationNumber')?.hasError('min') ">
-                        Полета трябва да е с дължина <strong> 9 символа! </strong> 
+                        *ngIf="this.ticketForm.get('profile.identificationNumber')?.hasError('min')">
+                        Полето трябва да е с дължина <strong> 10 символа! </strong> 
                     </mat-error>
                     <mat-error *ngIf="this.ticketForm.get('profile.identificationNumber')?.hasError('required')">
                         Полето е <strong> задължително! </strong>

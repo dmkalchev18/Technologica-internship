@@ -1,32 +1,6 @@
 {
   "formData": [
     {
-      "id": 1,
-      "firstName": "1",
-      "middleName": "1",
-      "lastName": "1",
-      "idCardNumber": 1,
-      "IdentificationNumber": 1,
-      "phoneNumber": 1,
-      "email": "1",
-      "address": [
-        {
-          "country": "1",
-          "area": "1",
-          "municipality": "1",
-          "city": "1",
-          "street": "1"
-        }
-      ],
-      "ticket": [
-        {
-          "duration": "1",
-          "type": "1",
-          "price": 1
-        }
-      ]
-    },
-    {
       "profile": {
         "firstName": "Иван",
         "middleName": "Стоянов",
@@ -49,30 +23,6 @@
         "price": 0
       },
       "id": 8
-    },
-    {
-      "profile": {
-        "firstName": "",
-        "middleName": "",
-        "lastName": "",
-        "idCardNumber": "",
-        "identificationNumber": "",
-        "phoneNumber": "",
-        "email": "",
-        "address": {
-          "country": "",
-          "area": "",
-          "municipality": "",
-          "city": "",
-          "street": ""
-        }
-      },
-      "ticket": {
-        "duration": "",
-        "type": "",
-        "price": 0
-      },
-      "id": 9
     }
   ]
 }
