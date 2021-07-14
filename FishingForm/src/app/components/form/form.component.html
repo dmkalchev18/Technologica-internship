@@ -5,7 +5,7 @@
 
     <form [formGroup]="ticketForm" class="ticketForm" (ngSubmit)="onSubmit()">
 
-        <h4>User info:</h4>
+        <h4>Данни за клиента:</h4>
         <div formGroupName="profile">
 
             <div class="form-control">
@@ -15,42 +15,42 @@
 
 
                 <mat-form-field class="ticket-form-field" appearance="fill">
-                    <mat-label>First Name</mat-label>
+                    <mat-label>Първо име</mat-label>
                     <input matInput id="firstName" type="text" formControlName="firstName">
                     <mat-error
                         *ngIf="this.ticketForm.get('profile.firstName')?.touched && this.ticketForm.get('profile.firstName')?.hasError('required')">
-                        Field is <strong> required </strong></mat-error>
+                        Полето е <strong> задължително </strong></mat-error>
                 </mat-form-field>
             </div>
 
             <div class="form-control">
                 <mat-form-field class="ticket-form-field" appearance="fill">
-                    <mat-label>Middle Name</mat-label>
+                    <mat-label>Бащино име</mat-label>
                     <input matInput id="middleName" type="text" formControlName="middleName">
                     <mat-error
                         *ngIf="this.ticketForm.get('profile.middleName')?.touched && this.ticketForm.get('profile.middleName')?.hasError('required')">
-                        Field is <strong> required </strong></mat-error>
+                        Полето е <strong> задължително </strong></mat-error>
                 </mat-form-field>
             </div>
 
             <div class="form-control">
                 <mat-form-field class="ticket-form-field" appearance="fill">
-                    <mat-label>Last Name</mat-label>
+                    <mat-label>Фамилия</mat-label>
                     <input matInput id="lastName" type="text" formControlName="lastName">
                     <mat-error
                         *ngIf="this.ticketForm.get('profile.lastName')?.touched && this.ticketForm.get('profile.lastName')?.hasError('required')">
-                        Field is <strong> required </strong></mat-error>
+                        Полето е <strong> задължително </strong></mat-error>
                 </mat-form-field>
             </div>
 
             <div class="form-control">
 
                 <mat-form-field class="ticket-form-field" appearance="fill">
-                    <mat-label>Phone Number</mat-label>
+                    <mat-label>Тел. номер</mat-label>
                     <input matInput id="phoneNumber" type="text" formControlName="phoneNumber">
                     <mat-error
                         *ngIf="this.ticketForm.get('profile.phoneNumber')?.touched && this.ticketForm.get('profile.phoneNumber')?.hasError('required')">
-                        Field is <strong> required </strong></mat-error>
+                        Полето е <strong> задължително </strong></mat-error>
                 </mat-form-field>
             </div>
 
@@ -59,11 +59,11 @@
                 <input id="email" type="text" formControlName="email" placeholder="Enter your email">
                 -->
                 <mat-form-field class="form-full-width" appearance="fill">
-                    <mat-label>Email</mat-label>
+                    <mat-label>Ел. поща</mat-label>
                     <input type="email" matInput formControlName="email" placeholder="Ex.mes@example.com">
                     <mat-error
                         *ngIf="(this.ticketForm.get('profile.email')?.touched && this.ticketForm.get('profile.email')?.hasError('email'))">
-                        Please enter a valid email address
+                        Моля въведете валидна ел. поща
                     </mat-error>
                     <mat-error *ngIf="this.ticketForm.get('profile.email')?.hasError('required')">
                         Email is <strong>required</strong>
@@ -75,26 +75,26 @@
             <div class="form-control">
 
                 <mat-form-field class="ticket-form-field" appearance="fill">
-                    <mat-label>ID Card Number</mat-label>
+                    <mat-label>Номер на лична карта</mat-label>
                     <input matInput id="idCardNumber" type="number" formControlName="idCardNumber">
                     <mat-error
                         *ngIf="this.ticketForm.get('profile.idCardNumber')?.touched && this.ticketForm.get('profile.idCardNumber')?.hasError('required')">
-                        Field is <strong> required </strong></mat-error>
+                        Полето е <strong> задължително </strong></mat-error>
                 </mat-form-field>
             </div>
 
             <div class="form-control">
 
                 <mat-form-field class="ticket-form-field" appearance="fill">
-                    <mat-label>Identification Number</mat-label>
+                    <mat-label>ЕГН</mat-label>
                     <input matInput id="identificationNumber" type="text" formControlName="identificationNumber">
 
                     <mat-error
                         *ngIf="this.ticketForm.get('profile.identificationNumber')?.hasError('minLength') && this.ticketForm.get('profile.identificationNumber')?.hasError('maxLength')">
-                        Field must be at least 9 numbers
+                        Полета трябва да е дълго <strong> 9 символа </strong> 
                     </mat-error>
                     <mat-error *ngIf="this.ticketForm.get('profile.identificationNumber')?.hasError('required')">
-                        Field is <strong>required</strong>
+                        Полето е <strong> задължително </strong>
                     </mat-error>
 
                 </mat-form-field>
@@ -105,7 +105,7 @@
                 <div class="form-control">
 
                     <mat-form-field appearance="fill" class="ticket-form-field">
-                        <mat-label>Country</mat-label>
+                        <mat-label>Държава</mat-label>
                         <mat-select disableRipple id="country" name="country" formControlName="country">
                             <!-- To do: Implement ngFor -->
                             <mat-option value="1">Option 1</mat-option>
@@ -114,14 +114,14 @@
                         </mat-select>
                         <mat-error
                         *ngIf="this.ticketForm.get('profile.address.country')?.touched && this.ticketForm.get('profile.address.country')?.hasError('required')">
-                        Field is <strong> required </strong></mat-error>
+                        Полето е <strong> задължително </strong></mat-error>
                     </mat-form-field>
 
                 </div>
 
                 <div class="form-control">
                     <mat-form-field appearance="fill" class="ticket-form-field">
-                        <mat-label>Area</mat-label>
+                        <mat-label>Област</mat-label>
                         <mat-select disableRipple id="area" name="area" formControlName="area">
                             <!-- To do: Implement ngFor -->
                             <mat-option value="1">Option 1</mat-option>
@@ -130,13 +130,13 @@
                         </mat-select>
                         <mat-error
                         *ngIf="this.ticketForm.get('profile.address.area')?.touched && this.ticketForm.get('profile.address.area')?.hasError('required')">
-                        Field is <strong> required </strong></mat-error>
+                        Полето е <strong> задължително </strong></mat-error>
                     </mat-form-field>
                 </div>
 
                 <div class="form-control">
                     <mat-form-field appearance="fill" class="ticket-form-field">
-                        <mat-label>Municipality</mat-label>
+                        <mat-label>Община</mat-label>
                         <mat-select disableRipple id="municipality" name="municipality" formControlName="municipality">
                             <!-- To do: Implement ngFor -->
                             <mat-option value="1">Option 1</mat-option>
@@ -145,13 +145,13 @@
                         </mat-select>
                         <mat-error
                         *ngIf="this.ticketForm.get('profile.address.municipality')?.touched && this.ticketForm.get('profile.address.municipality')?.hasError('required')">
-                        Field is <strong> required </strong></mat-error>
+                        Полето е <strong> задължително </strong></mat-error>
                     </mat-form-field>
                 </div>
 
                 <div class="form-control">
                     <mat-form-field appearance="fill" class="ticket-form-field">
-                        <mat-label>City</mat-label>
+                        <mat-label>Град</mat-label>
                         <mat-select disableRipple id="city" name="city" formControlName="city">
                             <!-- To do: Implement ngFor -->
                             <mat-option value="1">Option 1</mat-option>
@@ -160,57 +160,57 @@
                         </mat-select>
                         <mat-error
                         *ngIf="this.ticketForm.get('profile.address.city')?.touched && this.ticketForm.get('profile.address.city')?.hasError('required')">
-                        Field is <strong> required </strong></mat-error>
+                        Полето е <strong> задължително </strong></mat-error>
                     </mat-form-field>
                 </div>
 
                 <div class="form-control">
                     <mat-form-field class="ticket-form-field" appearance="fill">
-                        <mat-label>Street</mat-label>
+                        <mat-label>Улица</mat-label>
                         <input matInput id="street" type="text" formControlName="street">
                         <mat-error
                             *ngIf="this.ticketForm.get('profile.address.street')?.touched && this.ticketForm.get('profile.address.street')?.hasError('required')">
-                            Field is <strong> required </strong></mat-error>
+                            Полето е <strong> задължително </strong></mat-error>
                     </mat-form-field>
                 </div>
             </div>
 
         </div>
 
-        <h4>Ticket info:</h4>
+        <h4>Данни на билета:</h4>
         <div formGroupName="ticket">
 
             <div class="form-control custom-select">
                 <mat-form-field appearance="fill" class="ticket-form-field">
-                    <mat-label>Type</mat-label>
+                    <mat-label>Тип</mat-label>
                     <mat-select disableRipple id="type" name="type" formControlName="type">
                         <!-- To do: Implement ngFor -->
                         <mat-option *ngFor="let type of types" [value]="type">{{type}}</mat-option>
                     </mat-select>
                     <mat-error
                         *ngIf="this.ticketForm.get('ticket.type')?.touched && this.ticketForm.get('ticket.type')?.hasError('required')">
-                        Field is <strong> required </strong></mat-error>
+                        Полето е <strong> задължително </strong></mat-error>
                 </mat-form-field>
             </div>
 
             <div class="form-control">
                 <mat-form-field appearance="fill" class="ticket-form-field">
-                    <mat-label>Duration</mat-label>
+                    <mat-label>Времетраене</mat-label>
                     <mat-select disableRipple id="duration" name="duration" formControlName="duration">
                         <!-- To do: Implement ngFor -->
                         <mat-option *ngFor="let dur of durations" [value]="dur">{{dur}}</mat-option>
                     </mat-select>
                     <mat-error
                         *ngIf="this.ticketForm.get('ticket.duration')?.touched && this.ticketForm.get('ticket.duration')?.hasError('required')">
-                        Field is <strong> required </strong></mat-error>
+                        Полето е <strong> задължително </strong></mat-error>
                 </mat-form-field>
             </div>
 
         </div>
 
 
-        <p class="center">Total: {{price | currency : "BGN "}}</p>
-        <app-button color="blue" text="Submit" (click)="submitData()"></app-button>
+        <p class="center">Цена: {{price | currency : "BGN "}}</p>
+        <app-button color="blue" text="Изпрати" (click)="submitData()"></app-button>
     </form>
 
 </div>

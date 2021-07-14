@@ -15,24 +15,24 @@ export class FormComponent implements OnInit {
   @Output() onAddTicket: EventEmitter<Ticket> = new EventEmitter()
 
   durations = [
-    "1 week",
-    "1 month",
-    "6 months",
-    "1 year"
+    "1 седмица",
+    "1 месец",
+    "6 месеца",
+    "1 година"
   ]
 
   types = [
-    "Child",
-    "Standart",
-    "Retired"
+    "Детски",
+    "Стандартен",
+    "Пенсионерски"
   ]
 
   price: number = 0;
 
-  // 1 week = 4 lv
-  // 1 month = 8 lv
-  // 6 months = 15 lv
-  // 1 year = 25 lv 
+  // 1 седмица = 4 lv
+  // 1 месец = 8 lv
+  // 6 месеца = 15 lv
+  // 1 година = 25 lv 
   // year (14-18 || >=60w || >=65m) -> price /= 2
 
   onSubmit() {
@@ -88,10 +88,10 @@ export class FormComponent implements OnInit {
   }
 
   calcByDuration(duration: string) {
-    return (duration === "1 week") ? 4 : (duration === "1 month") ? 8 : (duration === "6 months") ? 15 : (duration === "1 year") ? 25 : 0;
+    return (duration === "1 седмица") ? 4 : (duration === "1 месец") ? 8 : (duration === "6 месеца") ? 15 : (duration === "1 година") ? 25 : 0;
   }
   calcByType(type: string) {
-    return (type === "Child"|| type === "Retired")  ? this.price /= 2 : this.price = this.price;
+    return (type === "Детски"|| type === "Пенсионерски")  ? this.price /= 2 : this.price = this.price;
   }
 
 }
