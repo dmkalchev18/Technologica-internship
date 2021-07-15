@@ -1,5 +1,5 @@
 <div class="container">
-    <h2>Buy a ticket</h2>
+    <h2>Закупуване на билет</h2>
 
     <p>{{ticketForm.value | json}}</p>
 
@@ -181,7 +181,7 @@
                     <mat-label>Времетраене</mat-label>
                     <mat-select disableRipple id="duration" name="duration" formControlName="duration">
                         <!-- To do: Implement ngFor -->
-                        <mat-option *ngFor="let dur of durations" [value]="dur">{{dur}}</mat-option>
+                        <mat-option *ngFor="let duration of durations" [value]="duration">{{duration}}</mat-option>
                     </mat-select>
                     <mat-error *ngIf="this.ticketForm.get('ticket.duration')?.touched && this.ticketForm.get('ticket.duration')?.hasError('required')">
                         Полето е <strong> задължително! </strong></mat-error>

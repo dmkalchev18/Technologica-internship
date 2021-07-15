@@ -1,8 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, AbstractControl, FormGroupDirective } from '@angular/forms';
 import { Validators, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { Ticket } from 'src/app/Ticket';
-import { citiesAndVillages } from '../../addressData/CitiesAndVillages';
+import { citiesAndVillages } from '../../addressData/citiesAndVillages';
 import { areas } from '../../addressData/areas';
 import { municipalities } from '../../addressData/municipalities';
 import { countries } from '../../addressData/countries';
@@ -46,7 +46,12 @@ export class FormComponent implements OnInit {
   onSubmit() {
     if (this.ticketForm.status === "VALID") {
       const newTicket = this.ticketForm.value;
-      this.onAddTicket.emit(newTicket)
+      this.onAddTicket.emit(newTicket);
+      // this.ticketForm.reset();
+      // for (let control in this.ticketForm.controls) {
+      //   this.ticketForm.controls[control].setErrors(null);
+      // }
+      window.location.reload()
     }
   }
 
@@ -93,8 +98,20 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.ticketForm.controls['ticket'].valueChanges.subscribe((value) => { this.price = (this.calcTicket()) });
-    //this.ticketForm.controls['ticket.price']?.setValue(this.price);
+    this.ticketForm.get('ticket.duration')?.valueChanges.subscribe((value) => {
+      let tt = this.ticketForm.get('ticket.type')?.value;
+      this.price = this.calcTicketPrice(tt, value);
+      this.ticketForm.get('ticket.price')?.setValue(this.price);
+    });
+
+    this.ticketForm.get('ticket.type')?.valueChanges.subscribe((value) => {
+      let dd = this.ticketForm.get('ticket.duration')?.value;
+      this.price = this.calcTicketPrice(value, dd);
+      this.ticketForm.get('ticket.price')?.setValue(this.price);
+    });
+
+    console.log(this.ticketForm.get('ticket.price'));//.setValue(this.price);
+
 
   }
 
@@ -102,12 +119,28 @@ export class FormComponent implements OnInit {
     let duration: string = this.ticketForm.controls['ticket'].value.duration;
     let type: string = this.ticketForm.controls['ticket'].value.type;
 
+    console.log(duration)
+    console.log(type)
+
     // console.log((this.ticketForm.controls['profile'] as FormGroup).controls['firstName'].hasError('required'));
-    console.log(this.ticketForm.get('profile.firstName')?.hasError('required'));
+    //console.log(this.ticketForm.get('profile.firstName')?.hasError('required'));
 
     this.price = this.calcByDuration(duration);
     this.price = this.calcByType(type);
     return this.price;
+  }
+
+  calcTicketPrice(type: string, duration: string) {
+    if (!type || !duration) {
+      return 0;
+    }
+
+    let pr = (duration === "1 седмица") ? 4 : (duration === "1 месец") ? 8 : (duration === "6 месеца") ? 15 : (duration === "1 година") ? 25 : 0;
+    if (type === "Детски" || type === "Пенсионерски") {
+      pr /= 2;
+    }
+
+    return pr;
   }
 
   calcByDuration(duration: string) {

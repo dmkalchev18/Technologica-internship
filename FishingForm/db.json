@@ -5,22 +5,22 @@
         "firstName": "a",
         "middleName": "a",
         "lastName": "a",
-        "idCardNumber": 123456789,
-        "identificationNumber": 1610207597,
-        "phoneNumber": "1234567894",
+        "idCardNumber": 123435789,
+        "identificationNumber": 1504306160,
+        "phoneNumber": "1234567890",
         "email": "a@a",
         "address": {
-          "country": "2",
-          "area": "3",
-          "municipality": "1",
-          "city": "1",
-          "street": "da"
+          "country": "България",
+          "area": "Бургас",
+          "municipality": "Бургас",
+          "city": "гр. Бургас",
+          "street": "рдфс"
         }
       },
       "ticket": {
-        "duration": "1 година",
+        "duration": "1 месец",
         "type": "Детски",
-        "price": 0
+        "price": 4
       },
       "id": 1
     },
@@ -29,48 +29,24 @@
         "firstName": "a",
         "middleName": "a",
         "lastName": "a",
-        "idCardNumber": 123456789,
-        "identificationNumber": 1610207597,
-        "phoneNumber": "1234567894",
+        "idCardNumber": 123465789,
+        "identificationNumber": 1504306160,
+        "phoneNumber": "1234567890",
         "email": "a@a",
         "address": {
-          "country": "2",
-          "area": "3",
-          "municipality": "1",
-          "city": "1",
-          "street": "da"
+          "country": "България",
+          "area": "Търговище",
+          "municipality": "Антон",
+          "city": "с. Аврамово",
+          "street": "захари стоянов"
         }
       },
       "ticket": {
         "duration": "1 година",
         "type": "Детски",
-        "price": 0
+        "price": 12.5
       },
       "id": 2
-    },
-    {
-      "profile": {
-        "firstName": "Иван",
-        "middleName": "Стоилов",
-        "lastName": "Колев",
-        "idCardNumber": 134587564,
-        "identificationNumber": 1107184970,
-        "phoneNumber": "0895426472",
-        "email": "Ivan@abv.bg",
-        "address": {
-          "country": "България",
-          "area": "Бургас",
-          "municipality": "Бургас",
-          "city": "гр. Бургас",
-          "street": "Захари Стоянов"
-        }
-      },
-      "ticket": {
-        "duration": "1 година",
-        "type": "Стандартен",
-        "price": 0
-      },
-      "id": 3
     }
   ]
 }
