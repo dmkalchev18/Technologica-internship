@@ -53,6 +53,9 @@ export class FormComponent implements OnInit {
       // }
       window.location.reload()
     }
+    else{
+      alert('Невалидни въведени данни')
+    }
   }
 
 

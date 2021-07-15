@@ -2,51 +2,27 @@
   "formData": [
     {
       "profile": {
-        "firstName": "a",
-        "middleName": "a",
-        "lastName": "a",
-        "idCardNumber": 123435789,
-        "identificationNumber": 1504306160,
-        "phoneNumber": "1234567890",
-        "email": "a@a",
+        "firstName": "Иван",
+        "middleName": "Стоянов",
+        "lastName": "Колев",
+        "idCardNumber": 123456789,
+        "identificationNumber": 2207100358,
+        "phoneNumber": "0896752485",
+        "email": "example@abv.bg",
         "address": {
           "country": "България",
           "area": "Бургас",
           "municipality": "Бургас",
           "city": "гр. Бургас",
-          "street": "рдфс"
-        }
-      },
-      "ticket": {
-        "duration": "1 месец",
-        "type": "Детски",
-        "price": 4
-      },
-      "id": 1
-    },
-    {
-      "profile": {
-        "firstName": "a",
-        "middleName": "a",
-        "lastName": "a",
-        "idCardNumber": 123465789,
-        "identificationNumber": 1504306160,
-        "phoneNumber": "1234567890",
-        "email": "a@a",
-        "address": {
-          "country": "България",
-          "area": "Търговище",
-          "municipality": "Антон",
-          "city": "с. Аврамово",
-          "street": "захари стоянов"
+          "street": "Захари Стоянов"
         }
       },
       "ticket": {
         "duration": "1 година",
-        "type": "Детски",
-        "price": 12.5
+        "type": "Стандартен",
+        "price": 25
       },
-      "id": 2
+      "id": 1
     }
   ]
 }
